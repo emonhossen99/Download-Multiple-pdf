@@ -30,6 +30,8 @@ class PDFController extends Controller
         }
         $zip = new \ZipArchive;
         $zipFilename = 'user_pdfs.zip';
+
+        // Create Publie Folder pdfs Folder
         if ($zip->open(public_path('pdfs/' . $zipFilename), \ZipArchive::CREATE) === TRUE) {
             foreach ($allPdfs as $key => $pdf) {
                 $filename = 'user_' . $users[$key]->id . '_pdf.pdf';
