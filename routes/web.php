@@ -17,4 +17,6 @@ use App\Http\Controllers\PDFController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+
+Route::post('mail',[PDFController::class,'mail'])->name('mail');
+Route::get('generate-pdf/{start}/{end}', [PDFController::class, 'generatePDF']);
